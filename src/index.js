@@ -1,16 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import Example from './menu/header';
+import Layout from './layout/layout';
+import Team from "./pages/team";
+import Goal from "./pages/goal";
+import Videos from "./pages/video";
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Team />} />
+          <Route path="video" element={<Videos />} />
+          <Route path="goal" element={<Goal />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div>
-    <Example />
-    <App />
-  </div>
+  <App />
     
   //</React.StrictMode>
 );
