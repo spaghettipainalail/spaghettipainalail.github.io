@@ -8,20 +8,41 @@ import Videos from "./pages/video";
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { HashRouter } from "react-router-dom";
+import { Component } from 'react';
+import { render } from 'react-dom';
+import {
+  createHashRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-export default function App() {
+/*export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Team />} />
-          <Route path="video" element={<Videos />} />
-          <Route path="goal" element={<Goal />} />
+          <Route path="/video" element={<Videos />} />
+          <Route path="/goal" element={<Goal />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
+}*/
+
+export default function App() {
+  return (
+    <HashRouter>
+      <Routes>
+      <Route path="/" element={<Team/>}/>
+      <Route path="/videos" element={<Videos/>} />
+      <Route path="/goal" element={<Goal/>} />
+      </Routes>
+    </HashRouter>
+  );
 }
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
